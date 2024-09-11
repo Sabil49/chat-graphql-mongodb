@@ -1,0 +1,43 @@
+type PageInfo {
+    hasPreviousPage: Boolean!
+    matchCount: Int,
+}
+type ChannelPostsConnection {
+  pageInfo: PageInfo!
+  edges: [ChannelPostsEdge!]!
+}
+type ChannelPostsEdge {
+  node: Post!
+  cursor: String!
+}
+type Channel {
+    _id: ID!
+    name: String!
+    description: String
+    created_at: String
+    isDirectMessage: Boolean
+    users: [User]!
+    posts(last: Int!, before: String): ChannelPostsConnection!
+}
+input ChannelInput {
+    name: String!
+    description: String
+    email: String
+}
+input ChannelUserInput {
+    email: String!
+    owner: String
+    channelId: ID
+    name: String
+}
+extend type Mutation {
+    createChannel(input: ChannelInput!): Channel!
+    addPeopleToChannel(input: ChannelUserInput!): Channel!
+}
+extend type Query {
+    channels(userId: String!): [Channel]
+    channel(id: String!): Channel
+}
+extend type Subscription {
+    newUserAddedToChannel: Channel!
+}

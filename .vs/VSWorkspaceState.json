@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\api",
+    "\\api\\auth",
+    "\\api\\channel",
+    "\\api\\middlewares",
+    "\\api\\post",
+    "\\src\\components",
+    "\\src\\components\\Auth",
+    "\\src\\components\\Channel"
+  ],
+  "SelectedNode": "\\api\\auth\\auth.resolvers.js",
+  "PreviewInSolutionExplorer": false
+}
